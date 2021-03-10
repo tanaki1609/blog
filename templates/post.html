@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/posts/">Posts list page</a>
+<h4>{{ post.title }}</h4>
+<p>{{ post.text }}</p>
+<p>{{ post.category.name }}</p>
+<p>{{ post.created }}</p>
+<hr/>
+{% for comment in comments %}
+    <p>{{ comment.text }}</p>
+{% endfor %}
+</body>
+</html>
