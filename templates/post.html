@@ -11,8 +11,14 @@
 <p>{{ post.category.name }}</p>
 <p>{{ post.created }}</p>
 <hr/>
+<h3>Комментарии</h3>
 {% for comment in comments %}
     <p>{{ comment.text }}</p>
 {% endfor %}
+<form action="/posts/{{ post.id }}/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать комментарий</button>
+</form>
 </body>
 </html>
