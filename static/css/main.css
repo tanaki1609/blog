@@ -1,0 +1,57 @@
+body{
+    background: #2d2c2c;
+}
+aside{
+    margin: -10px;
+    background: #181717;
+    float: left;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: white;
+    border-right: 5px solid gray;
+}
+aside img{
+    width: 60px;
+    float: left;
+}
+aside .logo{
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+aside h4{
+    margin-top: 40px;
+}
+aside ul{
+    list-style: none;
+}
+aside a{
+    text-decoration: none;
+}
+aside ul li{
+    color: white;
+    display: block;
+    margin-top: 20px;
+    transition: all .3s ease;
+}
+
+aside ul li:hover, aside ul a:hover{
+    color: chocolate;
+    transform: scale(1.05);
+}
+
+header{
+    padding-left:400px;
+    color: white;
+}
+header a{
+    color: white;
+    text-decoration: none;
+}
+
+.post-block{
+    padding-left: 400px;
+    color: white;
+}

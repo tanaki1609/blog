@@ -45,3 +45,7 @@ def add_article_view(request):
         'form': form
     }
     return render(request, 'add.html', context=data)
+
+
+def main_page_view(request):
+    return render(request, 'main.html')

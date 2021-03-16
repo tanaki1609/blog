@@ -18,6 +18,7 @@ from django.urls import path
 from article_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.main_page_view),
     path('posts/<int:id>/', views.get_post),
     path('posts/', views.get_all_posts),
     path('add_article/', views.add_article_view)
