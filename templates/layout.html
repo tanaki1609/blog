@@ -6,6 +6,7 @@
     <title>{% block title %} {% endblock %}</title>
      <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -17,6 +18,11 @@
         <a href="/"><li> <i class="fas fa-home"></i> Главная страница</li></a>
         <a href="/posts/"><li><i class="fas fa-list"></i> Список постов</li></a>
         <a href="/contacts/"><li><i class="fas fa-id-card"></i> Контакты</li></a>
+        {% if username %}
+            <a href="/logout/"><li><button type="button" class="btn btn-danger">Выйти ({{ username }})</button></li></a>
+        {% else %}
+            <a href="/login/"><li><button type="button" class="btn btn-danger">Войти</button></li></a>
+        {% endif %}
     </ul>
 </aside>
 

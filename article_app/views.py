@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -10,7 +11,8 @@ def get_all_posts(request):
     categories = Category.objects.all()
     data = {
         'posts': articles,
-        'categories': categories
+        'categories': categories,
+        'username': auth.get_user(request).username
     }
     return render(request, 'index.html', context=data)
 
@@ -28,7 +30,8 @@ def get_post(request, id):
     data = {
         'post': article,
         'comments': comments,
-        'form': form
+        'form': form,
+        'username': auth.get_user(request).username
     }
     return render(request, 'post.html',
                   context=data)
@@ -42,10 +45,33 @@ def add_article_view(request):
             return redirect('/posts/')
     form = ArticleForm()
     data = {
-        'form': form
+        'form': form,
+        'username': auth.get_user(request).username
     }
     return render(request, 'add.html', context=data)
 
 
 def main_page_view(request):
-    return render(request, 'main.html')
+    data = {
+        'username': auth.get_user(request).username
+    }
+    return render(request, 'main.html', context=data)
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = auth.authenticate(username=username, password=password)
+        if user:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            return render(request, 'login.html')
+    elif request.method == 'GET':
+        return render(request, 'login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')

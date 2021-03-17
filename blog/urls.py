@@ -21,5 +21,7 @@ urlpatterns = [
     path('', views.main_page_view),
     path('posts/<int:id>/', views.get_post),
     path('posts/', views.get_all_posts),
-    path('add_article/', views.add_article_view)
+    path('add_article/', views.add_article_view),
+    path('login/', views.login),
+    path('logout/', views.logout),
 ]
