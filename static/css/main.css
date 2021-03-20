@@ -55,3 +55,20 @@ header a{
     padding-left: 400px;
     color: white;
 }
+.block-content{
+    background: #2d2c2c;
+    height: 100vh;
+}
+.features{
+    display: block;
+    float: left;
+    color: white;
+    margin-top: 80px;
+    width: 75%;
+    text-align: center;
+}
+form{
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 32%;
+}
