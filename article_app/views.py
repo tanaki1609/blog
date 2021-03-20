@@ -2,7 +2,7 @@ from django.contrib import auth
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from .forms import ArticleForm, CommentForm
+from .forms import ArticleForm, CommentForm, RegisterForm
 from .models import Article, Comment, Category
 
 
@@ -75,3 +75,17 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def register_view(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/login/')
+        else:
+            return render(request, 'register.html', context={'form': form})
+    data = {
+        'form': RegisterForm()
+    }
+    return render(request, 'register.html', context=data)
